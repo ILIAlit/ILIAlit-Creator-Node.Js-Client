@@ -29,7 +29,7 @@ export default forwardRef(function PublicationCard(
 						<CardCover title={title} />
 					</CardActionArea>
 				</Box>
-				<Box sx={{ p: 3 }}>
+				<Box sx={{ pr: 3, pl: 3, pt: 3 }}>
 					<MyCardContent author={author} likeCount={likeCount} />
 				</Box>
 			</Card>

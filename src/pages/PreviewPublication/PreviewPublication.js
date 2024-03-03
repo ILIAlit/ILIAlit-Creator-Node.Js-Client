@@ -10,7 +10,7 @@ const defaultTheme = createTheme()
 export default observer(function PreviewPublication() {
 	const [publication, setPublication] = useState({})
 	const { image, title, description, likeCount, user } = publication
-	const  name = user?.name
+	const name = user?.name
 	const { publicationStore } = useContext(Context)
 
 	const params = useParams()
@@ -22,7 +22,6 @@ export default observer(function PreviewPublication() {
 
 	async function getOnePublication(publicationId) {
 		const publication = await publicationStore.getOnePublication(publicationId)
-		console.log(publication)
 		setPublication(publication)
 	}
 

@@ -26,7 +26,7 @@ export default function PublicationPreviewCard({
 				sx={{
 					borderRadius: { sm: '20px' },
 					minHeight: { md: 700, xs: 1200 },
-					height: '100vh',
+					height: 'auto',
 				}}
 			>
 				<Grid
@@ -36,21 +36,25 @@ export default function PublicationPreviewCard({
 					md={7}
 					lg={7}
 					sx={{
-						aspectRatio: 1,
-						minHeight: 500,
 						backgroundImage: `url(${image})`,
 						backgroundRepeat: 'no-repeat',
 						backgroundColor: t =>
 							t.palette.mode === 'light'
 								? t.palette.grey[50]
 								: t.palette.grey[900],
+						maxWidth: '100%',
 						backgroundSize: 'cover',
 						backgroundPosition: 'center',
 					}}
 				/>
 				<Grid item xs={12} sm={12} md={5} lg={5} sx={{ p: { sm: 4, xs: 2 } }}>
 					<Box>
-						<Typography gutterBottom component='h3' variant='h2'>
+						<Typography
+							sx={{ fontSize: { sm: 55, xs: 35 } }}
+							gutterBottom
+							component='h3'
+							variant='h2'
+						>
 							{title}
 						</Typography>
 					</Box>
@@ -61,6 +65,7 @@ export default function PublicationPreviewCard({
 					</Box>
 					<Box
 						sx={{
+							p: 0,
 							display: 'flex',
 							justifyContent: 'space-between',
 							alignItems: 'center',
@@ -78,9 +83,7 @@ export default function PublicationPreviewCard({
 								isLike={isLike}
 							/>
 						</Box>
-						<Box>
-							<MyCardContent author={name} likeCount={likeCount} />
-						</Box>
+						<MyCardContent author={name} likeCount={likeCount} />
 					</Box>
 					<Box></Box>
 				</Grid>

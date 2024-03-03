@@ -2,7 +2,7 @@ import BookmarkIcon from '@mui/icons-material/Bookmark'
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder'
 import { Box, Fab } from '@mui/material'
 import { observer } from 'mobx-react-lite'
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import { Context } from '../../../context'
 import Loader from './../Loader'
 
@@ -14,7 +14,7 @@ export default observer(function ButtonSave({
 	...props
 }) {
 	const { favoriteStore, alertStore } = useContext(Context)
-	const [loading, setIsLoading] = useState(false)
+	const { loading } = favoriteStore
 
 	const createSave = event => {
 		event.stopPropagation()

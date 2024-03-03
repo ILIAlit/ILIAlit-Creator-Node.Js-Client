@@ -1,13 +1,13 @@
+import { Box, CssBaseline } from '@mui/material'
 import { observer } from 'mobx-react-lite'
 import { useContext } from 'react'
 import { Context } from '../../context'
 import ErrorBoundary from '../../error/ErrorBoundary'
 import { useAuthCheck } from '../../hooks/useAuthCheck'
+import Error from '../Error/Error'
 import Header from '../Header/Header'
 import AlertMessage from '../UI/AlertMessage'
 import Loader from '../UI/Loader'
-import Error from '../Error/Error'
-import { CssBaseline } from '@mui/material'
 
 const Layout = ({ children }) => {
 	const {
@@ -16,7 +16,11 @@ const Layout = ({ children }) => {
 	useAuthCheck()
 
 	if (loading.isLoading) {
-		return <Loader />
+		return (
+			<Box sx={{ mt: 4 }}>
+				<Loader />
+			</Box>
+		)
 	}
 
 	return (
